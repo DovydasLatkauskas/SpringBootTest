@@ -1,5 +1,6 @@
-package com.jetbrains.marco.photozclone;
+package com.jetbrains.marco.photozclone.service;
 
+import com.jetbrains.marco.photozclone.model.Photo;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -26,8 +27,9 @@ public class PhotozService {
     }
 
 
-    public Photo save(String fileName, byte[] data) {
+    public Photo save(String fileName, String contentType, byte[] data) {
         Photo photo = new Photo();
+        photo.setContentType(contentType);
         photo.setId(UUID.randomUUID().toString());
         photo.setFileName(fileName);
         photo.setData(data);

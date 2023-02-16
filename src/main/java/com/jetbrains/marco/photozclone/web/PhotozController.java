@@ -1,5 +1,7 @@
-package com.jetbrains.marco.photozclone;
+package com.jetbrains.marco.photozclone.web;
 
+import com.jetbrains.marco.photozclone.model.Photo;
+import com.jetbrains.marco.photozclone.service.PhotozService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,7 +40,7 @@ public class PhotozController {
     }
     @PostMapping("/photoz")
     public Photo create(@RequestPart("data") MultipartFile file) throws IOException {
-        Photo photo = photozService.save(file.getOriginalFilename(), file.getBytes());
+        Photo photo = photozService.save(file.getOriginalFilename(), file.getContentType(), file.getBytes());
         return photo;
     }
 }
