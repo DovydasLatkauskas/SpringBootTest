@@ -31,7 +31,7 @@ public class PhotozService {
         photo.setId(UUID.randomUUID().toString());
         photo.setFileName(fileName);
         photo.setData(data);
-        db.put(photo.getId(), photo)
+        db.put(photo.getId(), photo);
         return photo;
     }
 }
